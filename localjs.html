@@ -1,0 +1,31 @@
+<html>
+<head>
+    <title>로컬 JavaScript 파일 실행</title>
+</head>
+<body>
+    <input type="file" id="jsFileInput">
+    <button onclick="runLocalJS()">로컬 JavaScript 파일 실행</button>
+
+    <script>
+        function runLocalJS() {
+            const input = document.getElementById('jsFileInput');
+            const file = input.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const jsCode = e.target.result;
+                    try {
+                        eval(jsCode); // JavaScript 코드 실행
+                    } catch (error) {
+                        console.error("JavaScript 실행 중 오류 발생:", error);
+                    }
+                };
+                reader.readAsText(file);
+            } else {
+                console.error("파일을 선택하세요.");
+            }
+        }
+    </script>
+</body>
+</html>
