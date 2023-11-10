@@ -1,5 +1,5 @@
 location.herf = location.herf;
-
+//document.write(''); 로컬js 실행 안 함
 
 var canvas = document.createElement("canvas");
 document.body.appendChild(canvas);
